@@ -69,7 +69,7 @@ class taskHomeViewController: UIViewController {
     @IBAction func unwindFromCustomVC(_ sender: UIStoryboardSegue) {
         if sender.source is CustomTaskViewController {
             if let senderVC = sender.source as? CustomTaskViewController {
-                taskBoxThree.text = senderVC.customTask
+                taskBoxOne.text = senderVC.customTask
             }
         }
     }
