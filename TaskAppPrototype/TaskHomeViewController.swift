@@ -66,7 +66,33 @@ class taskHomeViewController: UIViewController {
     }
     
     
+    @IBAction func unwindFromCustomVC(_ sender: UIStoryboardSegue) {
+        if sender.source is CustomTaskViewController {
+            if let senderVC = sender.source as? CustomTaskViewController {
+                taskBoxThree.text = senderVC.customTask
+            }
+        }
+    }
     
+    
+    
+    
+    
+    
+    @IBAction func completeButtonOneTapped(_ sender: UIButton) {
+        
+        self.taskBoxOne.text = "Task Completed! Great Job!"
+    }
+    
+    @IBAction func completeButtonTwoTapped(_ sender: UIButton) {
+        
+        self.taskBoxTwo.text = "Task Completed! Great Job!"
+    }
+    
+    @IBAction func completeButtonThreeTapped(_ sender: UIButton) {
+        
+        self.taskBoxThree.text = "Task Completed! Great Job!"
+    }
     
     
     
