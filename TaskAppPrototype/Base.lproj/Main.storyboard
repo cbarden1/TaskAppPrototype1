@@ -304,8 +304,6 @@
         <!--Custom Task-->
         <scene sceneID="0H1-aP-L1i">
             <objects>
-                <exit id="LKB-sF-bLU" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z62-Id-PyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Op0-HH-dRy" userLabel="Custom Task" customClass="CustomTaskViewController" customModule="TaskAppPrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TwI-Kr-uML">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -323,13 +321,18 @@
                         <viewLayoutGuide key="safeArea" id="FfF-7o-Q0h"/>
                     </view>
                     <navigationItem key="navigationItem" title="Custom Task" id="Lgb-yr-nBr">
-                        <barButtonItem key="rightBarButtonItem" title="Add Task" id="Keg-gZ-BHe"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Task" id="Keg-gZ-BHe">
+                            <connections>
+                                <segue destination="LKB-sF-bLU" kind="unwind" unwindAction="unwindFromCustomVC:" id="Qry-km-6bi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="customTaskTextField" destination="vN6-3c-cSs" id="rFE-ms-BJI"/>
-                        <segue destination="LKB-sF-bLU" kind="unwind" unwindAction="unwindFromCustomVC:" id="fKe-3H-zMg"/>
                     </connections>
                 </viewController>
+                <exit id="LKB-sF-bLU" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z62-Id-PyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2215" y="330"/>
         </scene>
