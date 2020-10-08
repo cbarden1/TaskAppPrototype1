@@ -39,6 +39,24 @@ class taskHomeViewController: UIViewController {
         
     }
     
+    
+    
+//   func createRerollAlert(){
+
+//        let rerollAlert = UIAlertController(title: nil, message: "The current task will be lost", preferredStyle: UIAlertControllerStyle.alert)
+    
+//       rerollAlert.addAction(UIAlertAction(title: "Reroll", style: .default, handler: {(action: UIAlertAction!) in
+//            print("Handle Reroll Logic Here")
+//        }))
+        
+//        rerollAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
+//            rerollAlert.dismiss(animated: true, completion: nil)
+//        }))
+        
+//        present(rerollAlert, animated: true, completion: nil)
+            
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
