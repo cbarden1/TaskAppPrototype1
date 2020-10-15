@@ -10,6 +10,12 @@ import UIKit
 
 class taskHomeViewController: UIViewController {
     
+    
+    
+    
+    
+    
+    
     var randomTask : Int = 0
     
     
@@ -34,11 +40,10 @@ class taskHomeViewController: UIViewController {
         self.taskBoxOne.text = listOfTasks[randomTask]
         generateRandomTask()
         self.taskBoxTwo.text = listOfTasks[randomTask]
-        generateRandomTask()
-        self.taskBoxThree.text = listOfTasks[randomTask]
         
     }
     
+
     
     
 //   func createRerollAlert(){
@@ -62,6 +67,14 @@ class taskHomeViewController: UIViewController {
         
         generateInitialTasks()
         
+        Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in
+            self.generateInitialTasks()
+        }
+        
+        
+        
+        
+        
     }
 
     
@@ -81,35 +94,49 @@ class taskHomeViewController: UIViewController {
         //Rerolls third task
         generateRandomTask()
         self.taskBoxThree.text = listOfTasks[randomTask]
+        
+        if self.taskBoxThree.text == taskBoxOne.text || self.taskBoxThree.text == taskBoxTwo.text {
+            generateRandomTask()
+            self.taskBoxThree.text = listOfTasks[randomTask]
+        }
     }
     
     
     @IBAction func unwindFromCustomVC(_ sender: UIStoryboardSegue) {
         if sender.source is CustomTaskViewController {
-            if let senderVC = sender.source as? CustomTaskViewController {
-                taskBoxOne.text = senderVC.customTask
+            if let customVC = sender.source as? CustomTaskViewController {
+                taskBoxThree.text = customVC.customTask
             }
         }
     }
     
     
     
-    
-    
-    
     @IBAction func completeButtonOneTapped(_ sender: UIButton) {
         
         self.taskBoxOne.text = "Task Completed! Great Job!"
+        
+        (sender as UIButton).isEnabled = false
+        
+        Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
     }
     
     @IBAction func completeButtonTwoTapped(_ sender: UIButton) {
         
         self.taskBoxTwo.text = "Task Completed! Great Job!"
+        
+        (sender as UIButton).isEnabled = false
+        
+        Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
     }
     
     @IBAction func completeButtonThreeTapped(_ sender: UIButton) {
         
         self.taskBoxThree.text = "Task Completed! Great Job!"
+        
+        (sender as UIButton).isEnabled = false
+        
+        Timer.scheduledTimer(withTimeInterval: 3600, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
     }
     
     

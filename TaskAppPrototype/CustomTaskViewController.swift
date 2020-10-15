@@ -12,8 +12,10 @@ import UIKit
 class CustomTaskViewController: UIViewController {
     
     
-    @IBOutlet weak var customTaskTextField: UITextField!
     
+    @IBOutlet weak var customFirstTaskTextField: UITextField!
+    
+
     var customTask: String!
     
     
@@ -22,7 +24,7 @@ class CustomTaskViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let newCustomTask = customTaskTextField.text {
+        if let newCustomTask = customFirstTaskTextField.text {
             customTask = newCustomTask
         }
     }
