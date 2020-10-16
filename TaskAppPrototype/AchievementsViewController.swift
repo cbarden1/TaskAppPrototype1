@@ -17,14 +17,9 @@ class AchievementsViewController: UIViewController {
     
     
     @IBOutlet weak var achievementProgressThree: UIProgressView!
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

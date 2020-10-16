@@ -10,12 +10,6 @@ import UIKit
 
 class taskHomeViewController: UIViewController {
     
-    
-    
-    
-    
-    
-    
     var randomTask : Int = 0
     
     
@@ -43,24 +37,19 @@ class taskHomeViewController: UIViewController {
         
     }
     
-
+    let defaults = UserDefaults.standard
     
+    var achievementProgress:[String] = []
     
-//   func createRerollAlert(){
-
-//        let rerollAlert = UIAlertController(title: nil, message: "The current task will be lost", preferredStyle: UIAlertControllerStyle.alert)
-    
-//       rerollAlert.addAction(UIAlertAction(title: "Reroll", style: .default, handler: {(action: UIAlertAction!) in
-//            print("Handle Reroll Logic Here")
-//        }))
+    func updateAchievementProgress() {
         
-//        rerollAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
-//            rerollAlert.dismiss(animated: true, completion: nil)
-//        }))
+        self.achievementProgress.append("TP")
         
-//        present(rerollAlert, animated: true, completion: nil)
-            
-//    }
+        defaults.set(achievementProgress, forKey: "SavedAchievementProgress")
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +59,6 @@ class taskHomeViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in
             self.generateInitialTasks()
         }
-        
         
         
         
@@ -95,10 +83,10 @@ class taskHomeViewController: UIViewController {
         generateRandomTask()
         self.taskBoxThree.text = listOfTasks[randomTask]
         
-        if self.taskBoxThree.text == taskBoxOne.text || self.taskBoxThree.text == taskBoxTwo.text {
-            generateRandomTask()
-            self.taskBoxThree.text = listOfTasks[randomTask]
-        }
+       // if self.taskBoxThree.text == taskBoxOne.text || self.taskBoxThree.text == taskBoxTwo.text {
+         //   generateRandomTask()
+           // self.taskBoxThree.text = listOfTasks[randomTask]
+        
     }
     
     
@@ -116,6 +104,8 @@ class taskHomeViewController: UIViewController {
         
         self.taskBoxOne.text = "Task Completed! Great Job!"
         
+        updateAchievementProgress()
+        
         (sender as UIButton).isEnabled = false
         
         Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
@@ -125,6 +115,8 @@ class taskHomeViewController: UIViewController {
         
         self.taskBoxTwo.text = "Task Completed! Great Job!"
         
+        updateAchievementProgress()
+        
         (sender as UIButton).isEnabled = false
         
         Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
@@ -133,6 +125,8 @@ class taskHomeViewController: UIViewController {
     @IBAction func completeButtonThreeTapped(_ sender: UIButton) {
         
         self.taskBoxThree.text = "Task Completed! Great Job!"
+        
+        updateAchievementProgress()
         
         (sender as UIButton).isEnabled = false
         
