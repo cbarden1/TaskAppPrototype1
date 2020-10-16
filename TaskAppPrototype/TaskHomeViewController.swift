@@ -40,6 +40,7 @@ class taskHomeViewController: UIViewController {
     
     var achievementProgress = 0
     
+    
     func updateAchievementProgress() {
         //Used in "Complete!" buttons to store the number of times a task was completed to use on progress views in Achievements VC
         
@@ -54,10 +55,7 @@ class taskHomeViewController: UIViewController {
         super.viewDidLoad()
         
         generateInitialTasks()
-    
-        Timer.scheduledTimer(withTimeInterval: 43200, repeats: true) { timer in
-            self.generateInitialTasks()
-        }
+
     }
     
    
@@ -95,11 +93,17 @@ class taskHomeViewController: UIViewController {
     
     
     @IBAction func completeButtonOneTapped(_ sender: UIButton) {
-        //Updates label text field, increments achievementProgress value, locks button for 12 hours
+        //Updates label text field, increments achievementProgress value, sets Task to reroll after 12 hours, locks button for 12 hours
         
         self.taskBoxOne.text = "Task Complete! Great Job!"
         
         updateAchievementProgress()
+        
+        Timer.scheduledTimer(withTimeInterval: 43200, repeats: false) { timer in
+            self.generateRandomTask()
+            self.taskBoxOne.text = self.listOfTasks[self.randomTask]
+        }
+
         
         (sender as UIButton).isEnabled = false
         Timer.scheduledTimer(withTimeInterval: 43200, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
@@ -107,11 +111,16 @@ class taskHomeViewController: UIViewController {
     
     
     @IBAction func completeButtonTwoTapped(_ sender: UIButton) {
-        //Updates label text field, increments achievementProgress value, locks button for 12 hours
+        //Updates label text field, increments achievementProgress value, sets Task to reroll after 12 hours, locks button for 12 hours
         
         self.taskBoxTwo.text = "Task Complete! Great Job!"
         
         updateAchievementProgress()
+        
+        Timer.scheduledTimer(withTimeInterval: 43200, repeats: false) { timer in
+            self.generateRandomTask()
+            self.taskBoxTwo.text = self.listOfTasks[self.randomTask]
+        }
         
         (sender as UIButton).isEnabled = false
         Timer.scheduledTimer(withTimeInterval: 43200, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
@@ -119,11 +128,16 @@ class taskHomeViewController: UIViewController {
     
     
     @IBAction func completeButtonThreeTapped(_ sender: UIButton) {
-        //Updates label text field, increments achievementProgress value, locks button for 12 hours
+        //Updates label text field, increments achievementProgress value, sets Task to reroll after 12 hours, locks button for 12 hours
         
         self.taskBoxThree.text = "Task Complete! Great Job!"
         
         updateAchievementProgress()
+        
+        Timer.scheduledTimer(withTimeInterval: 43200, repeats: false) { timer in
+            self.taskBoxThree.text = "Create your daily custom task using the top right button!"
+        }
+
         
         (sender as UIButton).isEnabled = false
         Timer.scheduledTimer(withTimeInterval: 43200, repeats: true) { timer in  (sender as UIButton).isEnabled = true}

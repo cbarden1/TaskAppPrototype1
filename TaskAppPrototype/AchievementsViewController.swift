@@ -24,19 +24,17 @@ class AchievementsViewController: UIViewController {
     
     @IBAction func resetAchievementProgress(_ sender: UIButton) {
         
-   //     achievementProgress = 0
+        achievementProgress = 0
         
-    //    defaults.set(achievementProgress, forKey: "SavedAchievementProgress")
+        defaults.set(achievementProgress, forKey: "SavedAchievementProgress")
         
-    //    achievementProgress = defaults.integer(forKey: "SavedAchievementProgress")
+        achievementProgress = defaults.integer(forKey: "SavedAchievementProgress")
         
-   //     trackAchievementOneProgress()
+        trackAchievementOneProgress()
         
-    //    trackAchievementTwoProgress()
+        trackAchievementTwoProgress()
         
-    //    trackAchievementThreeProgress()
-        
-    //    self.view.setNeedsLayout()
+        trackAchievementThreeProgress()
         
     }
     
