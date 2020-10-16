@@ -39,19 +39,25 @@ class taskHomeViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    var achievementProgress:[String] = []
+    var achievementProgress = 0
     
     func updateAchievementProgress() {
         
-        self.achievementProgress.append("TP")
+        achievementProgress += 1
         
         defaults.set(achievementProgress, forKey: "SavedAchievementProgress")
+        
+        //self.achievementProgress.append("")
+        
+        //defaults.set(achievementProgress, forKey: "SavedAchievementProgress")
+        
+        
     }
     
-    
-    
+
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         generateInitialTasks()
@@ -61,9 +67,9 @@ class taskHomeViewController: UIViewController {
         }
         
         
-        
-        
     }
+    
+   
 
     
     @IBAction func rerollFirstTaskButton(_ sender: UIButton) {
@@ -83,10 +89,6 @@ class taskHomeViewController: UIViewController {
         generateRandomTask()
         self.taskBoxThree.text = listOfTasks[randomTask]
         
-       // if self.taskBoxThree.text == taskBoxOne.text || self.taskBoxThree.text == taskBoxTwo.text {
-         //   generateRandomTask()
-           // self.taskBoxThree.text = listOfTasks[randomTask]
-        
     }
     
     
@@ -100,6 +102,10 @@ class taskHomeViewController: UIViewController {
     
     
     
+    
+    
+    
+    
     @IBAction func completeButtonOneTapped(_ sender: UIButton) {
         
         self.taskBoxOne.text = "Task Completed! Great Job!"
@@ -108,7 +114,7 @@ class taskHomeViewController: UIViewController {
         
         (sender as UIButton).isEnabled = false
         
-        Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
     }
     
     @IBAction func completeButtonTwoTapped(_ sender: UIButton) {
@@ -119,7 +125,7 @@ class taskHomeViewController: UIViewController {
         
         (sender as UIButton).isEnabled = false
         
-        Timer.scheduledTimer(withTimeInterval: 86400, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
     }
     
     @IBAction func completeButtonThreeTapped(_ sender: UIButton) {
@@ -130,7 +136,7 @@ class taskHomeViewController: UIViewController {
         
         (sender as UIButton).isEnabled = false
         
-        Timer.scheduledTimer(withTimeInterval: 3600, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in  (sender as UIButton).isEnabled = true}
     }
     
     
