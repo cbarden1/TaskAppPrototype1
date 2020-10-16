@@ -129,7 +129,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.68627450980000004" green="0.8980392157" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.72913020849227905" green="0.89274090528488159" blue="0.69801169633865356" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="1xe-NN-nDB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="YD6-uy-LPS">
@@ -235,11 +235,11 @@
                     <navigationItem key="navigationItem" title="Achievements" id="jh8-9V-SZ1">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="qlf-wt-llh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Ns-yd-Xf9" userLabel="Reset?">
-                                <rect key="frame" x="276" y="7" width="39" height="30"/>
+                                <rect key="frame" x="320" y="7" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
-                                    <action selector="resetAchievementProgress:" destination="HXc-UV-I7r" eventType="touchUpInside" id="H9R-Mb-Nib"/>
+                                    <action selector="resetAchievementProgress:" destination="HXc-UV-I7r" eventType="touchUpInside" id="alS-Jr-xyP"/>
                                 </connections>
                             </button>
                         </barButtonItem>
