@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class taskHomeViewController: UIViewController {
+    
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+   // func fetchTaskOne() {
+    //    context.fetch
+   // }
     
     var randomTask : Int = 0
     
